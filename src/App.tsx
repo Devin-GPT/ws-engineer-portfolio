@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './styles/App.css';
 import  MenuBar from './components/AppBar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+import useThemeToggle from './hooks/useDarkMode';
 
 const darkTheme = createTheme({
   palette: {
@@ -12,10 +12,14 @@ const darkTheme = createTheme({
     },
   },
 });
+const lightTheme = createTheme({
+
+});
 
 function App() {
+  const { theme, toggleTheme } = useThemeToggle();
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme }>
     <div className="App">
       <MenuBar />
       <header className="App-header">
