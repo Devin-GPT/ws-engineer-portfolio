@@ -1,8 +1,21 @@
 import logo from './logo.svg';
 import './styles/App.css';
 import  MenuBar from './components/AppBar';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2',
+    },
+  },
+});
+
 function App() {
   return (
+    <ThemeProvider theme={darkTheme}>
     <div className="App">
       <MenuBar />
       <header className="App-header">
@@ -20,6 +33,7 @@ function App() {
         </a>
       </header>
     </div>
+    </ThemeProvider>
   );
 }
 
